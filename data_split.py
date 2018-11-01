@@ -5,14 +5,15 @@ from tqdm import tqdm
 TRAIN_CAT_DIR = '../input/train/cat/'
 TRAIN_DOG_DIR = '../input/train/dog/'
 VAL_DIR = '../input/validation/'
+VAL_DOG_DIR = '../input/validation/dog/'
+VAL_CAT_DIR = '../input/validation/cat/'
 VAL_SIZE = 0.2
 
-dog_validation_files = [VAL_DIR+name for \
-                        name in os.listdir(VAL_DIR) \
-                        if 'dog' in name]
+dog_validation_files = [VAL_DOG_DIR+name for \
+                        name in os.listdir(VAL_DOG_DIR)]
 
-cat_validation_files = [VAL_DIR+name for \
-                        name in os.listdir(VAL_DIR) \
+cat_validation_files = [VAL_CAT_DIR+name for \
+                        name in os.listdir(VAL_CAT_DIR) \
                         if 'cat' in name]
 
 dog_train_files = [TRAIN_DOG_DIR+name for \
@@ -48,4 +49,7 @@ for file_path in tqdm(new_train_set):
 print("\nMoving Images to Validation directory..")
 for file_path in tqdm(new_val_set):
     filename =  os.path.basename(file_path)
-    shutil.move(file_path, VAL_DIR+filename)
+    if 'dog' in filename:
+        shutil.move(file_path, VAL_DOG_DIR+filename)
+    else:
+        shutil.move(file_path, VAL_CAT_DIR+filename)
