@@ -7,7 +7,7 @@ TRAIN_DOG_DIR = '../input/train/dog/'
 VAL_DIR = '../input/validation/'
 VAL_DOG_DIR = '../input/validation/dog/'
 VAL_CAT_DIR = '../input/validation/cat/'
-VAL_SIZE = 0.2
+VAL_SIZE = 0.25
 
 dog_validation_files = [VAL_DOG_DIR+name for \
                         name in os.listdir(VAL_DOG_DIR)]

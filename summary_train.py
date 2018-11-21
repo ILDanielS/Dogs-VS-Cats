@@ -15,8 +15,8 @@ TEST_DIR = '../input/test/'
 IMG_SIZE = 12500
 #ROWS = 256
 #COLS = 256
-ROWS = 128
-COLS = 128
+ROWS = 64
+COLS = 64
 CHANNELS = 3
 
 
@@ -33,13 +33,14 @@ test_image_list = [TEST_DIR+i for i in os.listdir(TEST_DIR)]
 print(len(test_image_list))
 
 
-filepath = 'cat_dog_generator_v5'
+filepath = 'cat_dog_v4a1'
 
 if filepath in os.listdir():
     print('Loading model from disk..')
     model = load_model(filepath)
 
 print(model.summary())
+
 
 with open('submission_file2.csv','w') as f:
      f.write('id,label\n')
